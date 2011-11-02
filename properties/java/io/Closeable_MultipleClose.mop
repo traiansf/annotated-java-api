@@ -1,0 +1,27 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns if close() is invoked multiple times.
+ *
+ * According to the Closeable.close() document, closing a previously closed
+ * stream has no effect.
+ * http://download.oracle.com/javase/6/docs/api/java/io/Closeable.html#close%28%29
+ *
+ * Although calling close() multiple times does not do any harm, this property
+ * raises a warning in the hope that the warning helps developers to find a
+ * glitch in their programs.
+ */
+
+Closeable_MultipleClose(Closeable c) {
+	event close before(Closeable c) : call(* Closeable+.close(..)) && target(c) {}
+
+	ere : close close+
+
+	@match {
+		System.err.println("close() was invoked multiple times.");
+		System.exit(1);
+	}
+}
+
