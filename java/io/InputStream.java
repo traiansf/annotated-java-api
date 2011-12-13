@@ -31,10 +31,10 @@ package java.io;
  * an input stream of bytes.
  * {@description.close}
  *
- * {@enforced.open}
+ * {@property.open enforced}
  * <p> Applications that need to define a subclass of <code>InputStream</code>
  * must always provide a method that returns the next byte of input.
- * {@enforced.close}
+ * {@property.close}
  *
  * @author  Arthur van Hoff
  * @see     java.io.BufferedInputStream
@@ -66,9 +66,9 @@ public abstract class InputStream implements Closeable {
      * or an exception is thrown.
      * {@property.close}
      *
-     * {@enforced.open}
+     * {@property.open enforced}
      * <p> A subclass must provide an implementation of this method.
-     * {@enforced.close}
+     * {@property.close}
      *
      * @return     the next byte of data, or <code>-1</code> if the end of the
      *             stream is reached.
