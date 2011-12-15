@@ -126,7 +126,7 @@ public class CollectTaglet implements Taglet {
           String printUnd = System.getenv("PRINT_UNDECIDED");
           if(printUnd != null && printUnd.equals("TRUE")){
             System.out.println("UNDECIDED TEXT={" + text + "}");
-          }
+          }   
         }
       } 
       Integer globalWords = statsDB.get(GLOBAL);
