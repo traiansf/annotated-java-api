@@ -123,10 +123,10 @@ public class CollectTaglet implements Taglet {
           String text = tag.text().trim();
           if(text.length() == 0) continue;
           w += text.split("\\s+").length; 
-          String undecided = System.getenv("PRINT_UNDECIDED");
-          if(undecided != null && undecided.equals("TRUE")){
-            System.out.println("UNDECIDED TEXT = {" + text + "}");
-          }
+          String printUnd = System.getenv("PRINT_UNDECIDED");
+          if(printUnd != null && printUnd.equals("TRUE")){
+            System.out.println("UNDECIDED TEXT={" + text + "}");
+          }   
         }
       } 
       Integer globalWords = statsDB.get(GLOBAL);

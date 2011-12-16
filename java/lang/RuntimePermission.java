@@ -30,7 +30,8 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
 
-/** {@collect.stats} 
+/** {@collect.stats}
+ * {@description.open} 
  * This class is for runtime permissions. A RuntimePermission
  * contains a name (also referred to as a "target name") but
  * no actions list; you either have the named permission
@@ -39,16 +40,22 @@ import java.util.StringTokenizer;
  * <P>
  * The target name is the name of the runtime permission (see below). The
  * naming convention follows the  hierarchical property naming convention.
+ * {@description.close}
+ * {@property.open runtime}
  * Also, an asterisk
  * may appear at the end of the name, following a ".", or by itself, to
  * signify a wildcard match. For example: "loadLibrary.*" or "*" is valid,
  * "*loadLibrary" or "a*b" is not valid.
+ * {@property.close}
+ * {@description.open}
  * <P>
  * The following table lists all the possible RuntimePermission target names,
  * and for each provides a description of what the permission allows
  * and a discussion of the risks of granting code the permission.
  * <P>
- *
+ * {@description.close}
+ * 
+ * {@property.open runtime}
  * <table border=1 cellpadding=5 summary="permission target name,
  *  what the target allows,and associated risks">
  * <tr>
@@ -317,6 +324,7 @@ import java.util.StringTokenizer;
  *   directory or within a registry depending on the platform OS</td>
  * </tr>
  * </table>
+ * {@property.close}
  *
  * @see java.security.BasicPermission
  * @see java.security.Permission
@@ -334,11 +342,16 @@ public final class RuntimePermission extends BasicPermission {
     private static final long serialVersionUID = 7399184964622342223L;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Creates a new RuntimePermission with the specified name.
      * The name is the symbolic name of the RuntimePermission, such as
-     * "exit", "setFactory", etc. An asterisk
+     * "exit", "setFactory", etc. 
+     * {@description.close}
+     * {@property.open runtime}
+     * An asterisk
      * may appear at the end of the name, following a ".", or by itself, to
      * signify a wildcard match.
+     * {@property.close}
      *
      * @param name the name of the RuntimePermission.
      *
@@ -351,10 +364,12 @@ public final class RuntimePermission extends BasicPermission {
         super(name);
     }
 
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@property.open runtime} 
      * Creates a new RuntimePermission object with the specified name.
      * The name is the symbolic name of the RuntimePermission, and the
      * actions String is currently unused and should be null.
+     * {@property.close}
      *
      * @param name the name of the RuntimePermission.
      * @param actions should be null.

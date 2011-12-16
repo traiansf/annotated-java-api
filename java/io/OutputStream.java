@@ -31,12 +31,12 @@ package java.io;
  * an output stream of bytes. An output stream accepts output bytes
  * and sends them to some sink.
  * {@description.close}
+ * {@property.open enforced}
  * <p>
- * {@enforced.open}
  * Applications that need to define a subclass of
  * <code>OutputStream</code> must always provide at least a method
  * that writes one byte of output.
- * {@enforced.close}
+ * {@property.close}
  *
  * @author  Arthur van Hoff
  * @see     java.io.BufferedOutputStream
@@ -56,11 +56,11 @@ public abstract class OutputStream implements Closeable, Flushable {
      * low-order bits of the argument <code>b</code>. The 24
      * high-order bits of <code>b</code> are ignored.
      * {@description.close}
+     * {@property.open enforced}
      * <p>
-     * {@enforced.open}
      * Subclasses of <code>OutputStream</code> must provide an
      * implementation for this method.
-     * {@enforced.close}
+     * {@property.close}
      *
      * @param      b   the <code>byte</code>.
      * @exception  IOException  if an I/O error occurs. In particular,
@@ -162,8 +162,8 @@ public abstract class OutputStream implements Closeable, Flushable {
      * is that it closes the output stream. A closed stream cannot perform
      * output operations and cannot be reopened.
      * {@property.close}
-     * <p>
      * {@description.open}
+     * <p>
      * The <code>close</code> method of <code>OutputStream</code> does nothing.
      * {@description.close}
      *

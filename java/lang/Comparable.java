@@ -27,7 +27,7 @@ package java.lang;
 import java.util.*;
 
 /** {@collect.stats}
- * {@descriptive.open}
+ * {@description.open}
  * This interface imposes a total ordering on the objects of each class that
  * implements it.  This ordering is referred to as the class's <i>natural
  * ordering</i>, and the class's <tt>compareTo</tt> method is referred to as
@@ -44,16 +44,14 @@ import java.util.*;
  * with equals</i> if and only if <tt>e1.compareTo(e2) == 0</tt> has
  * the same boolean value as <tt>e1.equals(e2)</tt> for every
  * <tt>e1</tt> and <tt>e2</tt> of class <tt>C</tt>.  
- * {@descriptive.close}
- * 
- * {@property.open runtime}
+ * {@description.close}
+ * {@property.open runtime formal:java.lang.Comparable_CompareToNullException formal:java.lang.Comparable_CompareToNull}
  * Note that <tt>null</tt>
  * is not an instance of any class, and <tt>e.compareTo(null)</tt> should
  * throw a <tt>NullPointerException</tt> even though <tt>e.equals(null)</tt>
  * returns <tt>false</tt>.<p>
  * {@property.close}
- *
- * {@property.open}
+ * {@property.open static}
  * It is strongly recommended (though not required) that natural orderings be
  * consistent with equals.  This is so because sorted sets (and sorted maps)
  * without explicit comparators behave "strangely" when they are used with
@@ -62,8 +60,7 @@ import java.util.*;
  * for set (or map), which is defined in terms of the <tt>equals</tt>
  * method.<p>
  * {@property.close}
- *
- * {@descriptive.open}
+ * {@description.open}
  * For example, if one adds two keys <tt>a</tt> and <tt>b</tt> such that
  * <tt>(!a.equals(b) && a.compareTo(b) == 0)</tt> to a sorted
  * set that does not use an explicit comparator, the second <tt>add</tt>
@@ -95,7 +92,7 @@ import java.util.*;
  * This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- * {@descriptive.close}
+ * {@description.close}
  *
  * @param <T> the type of objects that this object may be compared to
  *
@@ -106,32 +103,28 @@ import java.util.*;
 
 public interface Comparable<T> {
     /** {@collect.stats}
-     * {@descriptive.open}
+     * {@description.open}
      * Compares this object with the specified object for order.  Returns a
      * negative integer, zero, or a positive integer as this object is less
      * than, equal to, or greater than the specified object.
-     * {@descriptive.close}
-     *
-     * {@property.open}
+     * {@description.close}
+     * {@property.open static}
      * <p>The implementor must ensure <tt>sgn(x.compareTo(y)) ==
      * -sgn(y.compareTo(x))</tt> for all <tt>x</tt> and <tt>y</tt>.  (This
      * implies that <tt>x.compareTo(y)</tt> must throw an exception iff
      * <tt>y.compareTo(x)</tt> throws an exception.)
      * {@property.close}
-     *
-     * {@property.open}
+     * {@property.open static}
      * <p>The implementor must also ensure that the relation is transitive:
      * <tt>(x.compareTo(y)&gt;0 &amp;&amp; y.compareTo(z)&gt;0)</tt> implies
      * <tt>x.compareTo(z)&gt;0</tt>.
      * {@property.close}
-     *
-     * {@property.open}
+     * {@property.open static}
      * <p>Finally, the implementor must ensure that <tt>x.compareTo(y)==0</tt>
      * implies that <tt>sgn(x.compareTo(z)) == sgn(y.compareTo(z))</tt>, for
      * all <tt>z</tt>.
      * {@property.close}
-     *
-     * {@property.open}
+     * {@property.open static}
      * <p>It is strongly recommended, but <i>not</i> strictly required that
      * <tt>(x.compareTo(y)==0) == (x.equals(y))</tt>.  Generally speaking, any
      * class that implements the <tt>Comparable</tt> interface and violates
@@ -139,14 +132,13 @@ public interface Comparable<T> {
      * language is "Note: this class has a natural ordering that is
      * inconsistent with equals."
      * {@property.close}
-     *
-     * {@descriptive.open}
+     * {@description.open}
      * <p>In the foregoing description, the notation
      * <tt>sgn(</tt><i>expression</i><tt>)</tt> designates the mathematical
      * <i>signum</i> function, which is defined to return one of <tt>-1</tt>,
      * <tt>0</tt>, or <tt>1</tt> according to whether the value of
      * <i>expression</i> is negative, zero or positive.
-     * {@descriptive.close}
+     * {@description.close}
      *
      * @param   o the object to be compared.
      * @return  a negative integer, zero, or a positive integer as this object
