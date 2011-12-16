@@ -26,25 +26,30 @@
 package java.lang;
 
 /** {@collect.stats} 
+ * {@description.open}
  * Thrown to indicate that the Java Virtual Machine is broken or has
  * run out of resources necessary for it to continue operating.
- *
+ * {@description.close}
  *
  * @author  Frank Yellin
  * @since   JDK1.0
  */
 abstract public
 class VirtualMachineError extends Error {
-    /** {@collect.stats} 
+    /** {@collect.stats}
+     * {@description.open} 
      * Constructs a <code>VirtualMachineError</code> with no detail message.
+     * {@description.close}
      */
     public VirtualMachineError() {
         super();
     }
 
     /** {@collect.stats} 
+     * {@description.open}
      * Constructs a <code>VirtualMachineError</code> with the specified
      * detail message.
+     * {@description.close}
      *
      * @param   s   the detail message.
      */

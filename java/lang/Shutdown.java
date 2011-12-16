@@ -29,8 +29,10 @@ import java.util.ArrayList;
 
 
 /** {@collect.stats} 
+ * {@description.open}
  * Package-private utility class containing data structures and logic
  * governing the virtual-machine shutdown sequence.
+ * {@description.close}
  *
  * @author   Mark Reinhold
  * @since    1.3

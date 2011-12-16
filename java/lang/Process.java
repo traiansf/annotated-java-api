@@ -28,6 +28,7 @@ package java.lang;
 import java.io.*;
 
 /** {@collect.stats} 
+ * {@description.open}
  * The {@link ProcessBuilder#start()} and
  * {@link Runtime#exec(String[],String[],File) Runtime.exec}
  * methods create a native process and return an instance of a
@@ -61,6 +62,7 @@ import java.io.*;
  * <p>There is no requirement that a process represented by a {@code
  * Process} object execute asynchronously or concurrently with respect
  * to the Java process that owns the {@code Process} object.
+ * {@description.close}
  *
  * @author  unascribed
  * @see     ProcessBuilder
@@ -68,6 +70,7 @@ import java.io.*;
  */
 public abstract class Process {
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the output stream connected to the normal input of the
      * subprocess.  Output to the stream is piped into the standard
      * input stream of the process represented by this {@code Process}
@@ -75,6 +78,7 @@ public abstract class Process {
      *
      * <p>Implementation note: It is a good idea for the returned
      * output stream to be buffered.
+     * {@description.close}
      *
      * @return the output stream connected to the normal input of the
      *         subprocess
@@ -82,6 +86,7 @@ public abstract class Process {
     abstract public OutputStream getOutputStream();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the input stream connected to the normal output of the
      * subprocess.  The stream obtains data piped from the standard
      * output stream of the process represented by this {@code
@@ -89,6 +94,7 @@ public abstract class Process {
      *
      * <p>Implementation note: It is a good idea for the returned
      * input stream to be buffered.
+     * {@description.close}
      *
      * @return the input stream connected to the normal output of the
      *         subprocess
@@ -97,6 +103,7 @@ public abstract class Process {
     abstract public InputStream getInputStream();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the input stream connected to the error output stream of
      * the subprocess.  The stream obtains data piped from the error
      * output stream of the process represented by this {@code Process}
@@ -104,6 +111,7 @@ public abstract class Process {
      *
      * <p>Implementation note: It is a good idea for the returned
      * input stream to be buffered.
+     * {@description.close}
      *
      * @return the input stream connected to the error output stream of
      *         the subprocess
@@ -112,12 +120,14 @@ public abstract class Process {
     abstract public InputStream getErrorStream();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Causes the current thread to wait, if necessary, until the
      * process represented by this {@code Process} object has
      * terminated.  This method returns immediately if the subprocess
      * has already terminated.  If the subprocess has not yet
      * terminated, the calling thread will be blocked until the
      * subprocess exits.
+     * {@description.close}
      *
      * @return the exit value of the subprocess represented by this
      *         {@code Process} object.  By convention, the value
@@ -130,7 +140,9 @@ public abstract class Process {
     abstract public int waitFor() throws InterruptedException;
 
     /** {@collect.stats} 
+     * {@description.open}
      * Returns the exit value for the subprocess.
+     * {@description.close}
      *
      * @return the exit value of the subprocess represented by this
      *         {@code Process} object.  By convention, the value
@@ -141,8 +153,10 @@ public abstract class Process {
     abstract public int exitValue();
 
     /** {@collect.stats} 
+     * {@description.open}
      * Kills the subprocess. The subprocess represented by this
      * {@code Process} object is forcibly terminated.
+     * {@description.close}
      */
     abstract public void destroy();
 }
