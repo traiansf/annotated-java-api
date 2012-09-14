@@ -1,0 +1,24 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+
+/**
+ * Suggests if the constructor of Float is used.
+ *
+ * According to the manual, using the constructor is not recommended 
+ * for performance reasons. Rather, one should use the static factory.
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Float.html#valueOf%28float%29
+ *
+ * @severity suggestion
+ */
+ 
+Float_StaticFactory() {
+    event constructor_create after() returning(Float f): 
+        call(Float+.new(float)) {
+            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Float_StaticFactory was violated.");
+            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor Float(float value) might be inefficient. Use valueOf(float) if it is appropriate.");
+        }
+    
+}
+

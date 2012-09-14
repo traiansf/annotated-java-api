@@ -1,0 +1,24 @@
+package mop;
+
+import java.util.*;
+
+/**
+ * Warns if the index passed to insertElementAt() is invalid.
+ *
+ * The index passed to insertElementAt() must be a value greater than or equal
+ * to 0 and less than or equal to the current size of the vector.
+ * http://docs.oracle.com/javase/6/docs/api/java/util/Vector.html#insertElementAt%28E,%20int%29
+ *
+ * @severity error
+ */
+
+Vector_InsertIndex() {
+	event insert before(Vector v, int index) :
+		call(* Vector+.insertElementAt(Object, int)) && target(v) && args(.., index) {
+		if (!(0 <= index && index <= v.size())) {
+			javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Vector_InsertIndex was violated.");
+			javamoprt.MOPLogging.out.println(ERROR, "The index passed to insertElementAt() is invalid.");
+		}
+	}
+}
+

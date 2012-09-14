@@ -1,0 +1,26 @@
+package mop;
+
+import java.util.*;
+
+/**
+ * Warns if a subclass of ArrayDeque is about to have a null element.
+ *
+ * ArrayDeque does not permit null elements.
+ * http://download.oracle.com/javase/6/docs/api/java/util/ArrayDeque.html
+ *
+ * This property warns if null is about to be inserted.
+ *
+ * @severity error
+ */
+
+ArrayDeque_NonNull() {
+	event insertnull before(Object e) :
+		(
+			call(* ArrayDeque.add*(..)) ||
+			call(* ArrayDeque.offer*(..)) ||
+			call(* ArrayDeque.push(..))
+		) && args(Object+)  && args(e) && condition(e == null) {
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ArrayDeque_NonNull was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "ArrayDeque does not permit null.");
+	}
+}

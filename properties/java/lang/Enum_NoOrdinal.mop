@@ -1,0 +1,22 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+
+/**
+ * Suggests not to use ordinal() method.
+ * 
+ * According to the manual, most programmers will have no use for ordinal() method. 
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Enum.html#ordinal%28%29
+ * 
+ * @severity suggestion
+ */
+
+Enum_NoOrdinal() {
+	event ordinal before() : call(* Enum+.ordinal()) {
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Enum_NoOrdinal was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "Most programmers will have no use for ordinal() method."); 
+	}
+
+	
+}
