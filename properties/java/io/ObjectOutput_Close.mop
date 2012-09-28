@@ -1,0 +1,27 @@
+package mop;
+
+import java.io.*;
+
+/**
+ * Warns if an ObjectOutput instance does not close.
+ *
+ * An ObjectOutput instance must be closed.
+ * http://download.oracle.com/javase/6/docs/api/java/io/ObjectOutput.html#close%28%29
+ *
+ * @severity error
+ */
+
+ObjectOutput_Close(ObjectOutput o) {
+	event create after() returning(ObjectOutput o) :
+		call(ObjectOutput+.new(..)) {}
+	event close before(ObjectOutput o) : call(* ObjectOutput+.close(..)) && target(o) {}
+	event endProg before() : endProgram() {}
+
+	ltl : [](create => o close)
+
+	@violation {
+		javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " ObjectOutput_Close was violated.");
+		javamoprt.MOPLogging.out.println(ERROR, "close() was not called.");
+	}
+}
+

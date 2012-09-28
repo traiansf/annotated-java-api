@@ -1,0 +1,24 @@
+package mop;
+
+import java.io.*;
+import java.lang.*;
+
+/**
+ * Suggests if the constructor of Double is used.
+ *
+ * According to the manual, using the constructor is not recommended 
+ * for performance reasons. Rather, one should use the static factory.
+ * http://docs.oracle.com/javase/6/docs/api/java/lang/Double.html#valueOf%28double%29
+ *
+ * @severity suggestion
+ */
+ 
+Double_StaticFactory() {
+    event constructor_create after() returning(Double d): 
+        call(Double+.new(double)) {
+            javamoprt.MOPLogging.out.println(ERROR, "At line " + __LOC + " Double_StaticFactory was violated.");
+            javamoprt.MOPLogging.out.println(ERROR, "Using the constructor Double(double value) might be inefficient. Use valueOf(double) if it is appropriate.");
+        }
+    
+}
+
