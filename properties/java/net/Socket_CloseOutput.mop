@@ -38,4 +38,3 @@ Socket_CloseOutput(Socket sock, OutputStream output) {
 		MOPLogging.out.println(Level.CRITICAL, "The output stream of a closed socket is about to be used.");
 	}
 }
-
